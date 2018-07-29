@@ -1,9 +1,14 @@
+# changeDir.py will change name for all the folders
+#              by first reading the IP info from the stats.html
+#              foldername: name-vsan-IP
+#
+
 import os, subprocess
 
 filename="stats.html"
 for root, dirs, files in os.walk(".", topdown=False):
         if filename in files:
-           
+
            pathlocation = os.path.join(root, filename)
            #note: subprocess,check_output is available in python 2.7
            #IP = subprocess.check_output("cat " +path+ " | awk '{print NF}'", shell=True)
@@ -13,7 +18,7 @@ for root, dirs, files in os.walk(".", topdown=False):
 
            #current directory name
            path,foldername = os.path.split(os.path.dirname(pathlocation))
-           
+
            if "-vsan-" not in foldername:
              newdir = os.path.dirname(pathlocation) + "-vsan-" + IP
              currentdir = os.path.dirname(pathlocation)
