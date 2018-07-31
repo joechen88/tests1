@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROG=`basename $0`
+
 filename=$1
 
 lunreset() {
@@ -200,9 +202,9 @@ if [[ -n "$filename" ]]; then
 else
   echo ""
   echo ""
-  echo "	Usage: resetCount.sh <filename>"
+  echo "	Usage: $PROG <filename>"
   echo ""
-  echo "               example: sh resetCount.sh vmkernel.consolidated.log"
+  echo "               example: sh $PROG vmkernel.consolidated.log"
   echo ""
   echo "           Note:  if there are multiple vmkernel logs, such as vmkernel.0.gz,vmkernel.1.gz,..etc "
   echo "                  ensure to consolidate the logs in a sorted order. "
